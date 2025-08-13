@@ -1,0 +1,309 @@
+/* Vibrant, animated, multi-color gradient and glassmorphism */
+:root {
+    --bg-gradient: linear-gradient(120deg, #232526 0%, #414345 20%, #7f53ac 50%, #4299e1 80%, #232526 100%);
+    --card-bg: rgba(40, 44, 63, 0.7);
+    --glass-blur: blur(22px) saturate(140%);
+    --text-primary: #fff;
+    --text-secondary: #a0aec0;
+    --accent-color: #7f53ac;
+    --accent-glow: #4299e1;
+    --error-color: #fc8181;
+    --success-color: #68d391;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* --- Enhanced, modern, animated, and interactive UI CSS --- */
+:root {
+    --bg-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: #a0aec0;
+    --accent-color: #4299e1;
+    --error-color: #fc8181;
+    --success-color: #68d391;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(270deg, #232526, #7f53ac, #4299e1, #232526);
+    background-size: 400% 400%;
+    animation: bgMove 18s ease-in-out infinite;
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+@keyframes bgMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+.container {
+    width: 100%;
+    max-width: 800px;
+}
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem 2rem 2rem;
+    box-shadow: 0 12px 40px 0 rgba(0,0,0,0.25), 0 1.5px 8px 0 var(--accent-glow);
+    animation: cardFadeIn 1.2s cubic-bezier(.23,1.02,.32,1) 1;
+    border: 2px solid rgba(127,83,172,0.18);
+    position: relative;
+    overflow: hidden;
+}
+.upload-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1.5rem;
+    pointer-events: none;
+    box-shadow: 0 0 80px 10px var(--accent-glow);
+    opacity: 0.08;
+    z-index: 0;
+}
+@keyframes cardFadeIn {
+    0% { opacity: 0; transform: translateY(40px) scale(0.98); }
+    100% { opacity: 1; transform: none; }
+}
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+.upload-area {
+    border: 2.5px dashed var(--accent-color);
+    border-radius: 0.9rem;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s, border-color 0.3s, background 0.3s, transform 0.2s;
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 2px 12px 0 var(--accent-glow);
+    position: relative;
+    z-index: 1;
+}
+.upload-area:hover, .upload-area:focus, .upload-area.dragover {
+    border-color: #fff;
+    background: rgba(127, 83, 172, 0.18);
+    box-shadow: 0 4px 32px 0 var(--accent-glow);
+    transform: scale(1.04);
+}
+.upload-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 2px 8px #4299e1cc);
+    transition: filter 0.3s;
+}
+.upload-area:hover .upload-icon, .upload-area.dragover .upload-icon {
+    filter: drop-shadow(0 4px 16px #7f53accc);
+}
+.click-text {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+.file-input {
+    display: none;
+}
+.file-info {
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+}
+.preview-area {
+    margin-top: 2rem;
+    text-align: center;
+    animation: fadeInResult 0.8s;
+}
+.image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 12px 0 rgba(66,153,225,0.13);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.image-preview:hover {
+    box-shadow: 0 6px 24px 0 rgba(127,83,172,0.18);
+    transform: scale(1.03);
+}
+.analyze-btn {
+    background: linear-gradient(90deg, #4299e1 0%, #7f53ac 100%);
+    color: white;
+    border: none;
+    padding: 0.95rem 2.5rem;
+    border-radius: 0.7rem;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    box-shadow: 0 2px 8px 0 var(--accent-glow);
+    transition: box-shadow 0.2s, transform 0.2s, background 0.3s;
+    outline: none;
+    position: relative;
+    z-index: 2;
+}
+.analyze-btn:not(:disabled):hover, .analyze-btn:not(:disabled):focus {
+    background: linear-gradient(90deg, #7f53ac 0%, #4299e1 100%);
+    box-shadow: 0 4px 24px 0 var(--accent-glow);
+    transform: scale(1.07);
+}
+.analyze-btn:not(:disabled) {
+    animation: pulseBtn 1.5s infinite alternate;
+}
+@keyframes pulseBtn {
+    0% { box-shadow: 0 2px 8px 0 var(--accent-glow); }
+    100% { box-shadow: 0 8px 32px 0 var(--accent-glow); }
+}
+.analyze-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    animation: none;
+}
+.result-panel {
+    margin-top: 2rem;
+    padding: 1.5rem 1.2rem 1.7rem 1.2rem;
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 1rem;
+    box-shadow: 0 2px 24px 0 var(--accent-glow);
+    animation: fadeInResult 1s cubic-bezier(.23,1.02,.32,1) 1;
+    border: 1.5px solid rgba(127,83,172,0.18);
+    position: relative;
+    z-index: 1;
+}
+.result-content {
+    position: relative;
+    padding: 1.2rem 1rem 1rem 1rem;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #e2e8f0;
+    word-break: break-word;
+    letter-spacing: 0.01em;
+    z-index: 2;
+}
+@keyframes fadeInResult {
+    0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+    100% { opacity: 1; transform: none; }
+}
+.copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(127,83,172,0.13);
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    z-index: 3;
+}
+.copy-btn:hover, .copy-btn:focus {
+    background: var(--accent-color);
+    color: #fff;
+    transform: scale(1.08);
+}
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeInOverlay 0.5s;
+}
+.spinner {
+    width: 56px;
+    height: 56px;
+    border: 6px solid rgba(255, 255, 255, 0.13);
+    border-top: 6px solid var(--accent-color);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 24px 0 var(--accent-glow);
+}
+@keyframes fadeInOverlay {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    background: var(--error-color);
+    color: white;
+    font-size: 1.05rem;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1001;
+    box-shadow: 0 2px 12px 0 rgba(252,129,129,0.13);
+    transition: opacity 0.3s, transform 0.3s;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+.toast.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) scale(1.04);
+    animation: toastPop 0.5s;
+}
+@keyframes toastPop {
+    0% { opacity: 0; transform: translateX(-50%) scale(0.8); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1.04); }
+}
+.hidden {
+    display: none !important;
+}
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem;
+    }
+    .upload-card {
+        padding: 1rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+}
