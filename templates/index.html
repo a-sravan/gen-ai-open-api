@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Analysis with Gemini AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="upload-card">
+            <h1>Image Analysis with Gemini AI</h1>
+            <div class="upload-area" id="dropZone" tabindex="0" role="button" aria-label="Drop zone for image upload">
+                <div class="upload-content">
+                    <img src="{{ url_for('static', filename='images/upload-icon.svg') }}" alt="Upload icon" class="upload-icon">
+                    <p>Drag and drop an image here<br>or <span class="click-text">click to browse</span></p>
+                    <input type="file" id="fileInput" accept=".jpg,.jpeg,.png" class="file-input" aria-label="File input">
+                </div>
+                <div class="file-info hidden" aria-live="polite">
+                    <p class="file-name"></p>
+                    <p class="file-size"></p>
+                </div>
+            </div>
+            <div class="preview-area hidden" aria-live="polite">
+                <img id="imagePreview" alt="Preview" class="image-preview">
+                <button id="analyzeBtn" class="analyze-btn" disabled>Analyze Image</button>
+            </div>
+            <div class="result-panel hidden" aria-live="polite">
+                <h2>Analysis Result</h2>
+                <div class="result-content">
+                    <p id="resultText"></p>
+                    <button id="copyBtn" class="copy-btn" aria-label="Copy to clipboard">
+                        <span class="copy-icon">📋</span>
+                    </button>
+                </div>
+            </div>
+            <div class="loading-overlay hidden" aria-live="polite">
+                <div class="spinner"></div>
+                <p>Analyzing image...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
